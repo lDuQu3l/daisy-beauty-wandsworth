@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daisy Beauty Wandsworth — Nails & Beauty at Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #2d2d2d;
+            background: #fcf9f7;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        /* ─── COLORS ─── */
+        :root {
+            --rose: #e8c4c0;
+            --rose-light: #f5e6e3;
+            --gold: #c9a96e;
+            --gold-light: #f0e6d3;
+            --cream: #fcf9f7;
+            --warm-white: #fffaf6;
+            --charcoal: #2d2d2d;
+            --muted: #8a7f7a;
+            --border: #e8ddd8;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(252, 249, 247, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+        nav .logo span { color: var(--gold); }
+        nav .nav-links { display: flex; gap: 28px; align-items: center; }
+        nav .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover { color: var(--charcoal); }
+        .nav-cta {
+            background: var(--charcoal);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 999px;
+            font-weight: 500;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: #444 !important; }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--rose-light) 50%, var(--gold-light) 100%);
+            text-align: center;
+        }
+        .hero-content { max-width: 720px; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.15);
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--charcoal);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: #444; transform: translateY(-1px); }
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--charcoal);
+            padding: 14px 36px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1.5px solid var(--border);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--charcoal); transform: translateY(-1px); }
+
+        /* ─── SECTIONS ─── */
+        section { padding: 80px 24px; }
+        .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto 48px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        /* ─── SERVICES ─── */
+        #services { background: var(--warm-white); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+        .service-icon { font-size: 2rem; margin-bottom: 16px; }
+        .service-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .service-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+        .service-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        .service-price small {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+        .service-tag {
+            display: inline-block;
+            background: #f0ebe7;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-top: 8px;
+        }
+
+        /* ─── GALLERY ─── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--rose-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        .gallery-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+        }
+        .gallery-placeholder span { font-size: 2rem; }
+
+        /* ─── ABOUT ─── */
+        #about { background: var(--cream); }
+        .about-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text { flex: 1; }
+        .about-text h3 { font-size: 1.6rem; margin-bottom: 16px; }
+        .about-text p { color: var(--muted); margin-bottom: 16px; }
+        .about-photo {
+            flex: 0 0 280px;
+            height: 320px;
+            background: var(--rose-light);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+
+        /* ─── CONTACT ─── */
+        #contact {
+            background: var(--charcoal);
+            color: white;
+        }
+        #contact .section-title { color: white; }
+        #contact .section-subtitle { color: rgba(255,255,255,0.6); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .contact-item {
+            text-align: center;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+        }
+        .contact-item .icon { font-size: 1.8rem; margin-bottom: 12px; }
+        .contact-item h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+        .contact-item p { color: rgba(255,255,255,0.6); font-size: 0.9rem; font-weight: 300; }
+        .contact-item a { color: var(--gold); text-decoration: none; }
+        .contact-item a:hover { text-decoration: underline; }
+
+        /* ─── SOCIAL BAR ─── */
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 24px;
+            background: var(--cream);
+            border-top: 1px solid var(--border);
+        }
+        .social-bar a {
+            width: 48px; height: 48px;
+            border: 1.5px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.2s;
+            color: var(--charcoal);
+        }
+        .social-bar a:hover {
+            background: var(--charcoal);
+            color: white;
+            border-color: var(--charcoal);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 24px;
+            background: var(--cream);
+            color: var(--muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 768px) {
+            nav .nav-links a:not(.nav-cta) { display: none; }
+            .hero h1 { font-size: 2.4rem; }
+            .section-title { font-size: 1.8rem; }
+            .about-content { flex-direction: column; }
+            .about-photo { flex: none; width: 100%; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 100px 16px 60px; }
+            section { padding: 60px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="logo">Daisy<span>.</span></a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact" class="nav-cta">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✦ Now in Wandsworth</div>
+            <h1>Nails & Beauty<br>at <em>Your Doorstep</em></h1>
+            <p>Professional gel nails, acrylic extensions, and beauty treatments brought to your home in Wandsworth, London. Book your appointment today.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">💬 Book Appointment</a>
+                <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <p class="section-label">✦ Services</p>
+            <h2 class="section-title">What I Offer</h2>
+            <p class="section-subtitle">Professional beauty services at home in Wandsworth. All treatments include consultation and aftercare advice.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💅</div>
+                    <h3>Acrylic / Gel Extensions</h3>
+                    <p>Full set of sculpted nails — coffin, almond, square, or stiletto. Any length, any design.</p>
+                    <div class="service-price">£35 <small>full set</small></div>
+                    <div class="service-tag">✨ Launch price — was £45</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Fill & Maintenance</h3>
+                    <p>Refill and refresh your existing set. Includes cuticle care, shape correction, and new colour.</p>
+                    <div class="service-price">£25 <small>per session</small></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Glitter & Designs</h3>
+                    <p>Custom glitter gradients, ombré effects, chrome, marble, floral — anything you imagine.</p>
+                    <div class="service-price">£5-10 <small>add-on</small></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💇‍♀️</div>
+                    <h3>Hair Treatments</h3>
+                    <p>Keratin smoothing, blow-dry, and styling — all from the comfort of your home.</p>
+                    <div class="service-price">£35+ <small>varies</small></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌺</div>
+                    <h3>African Braids</h3>
+                    <p>Box braids, cornrows, and protective styles. Trained and experienced.</p>
+                    <div class="service-price">£30+ <small>varies</small></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎀</div>
+                    <h3>Gel Polish Only</h3>
+                    <p>If you already have your natural nails done — just colour and design application.</p>
+                    <div class="service-price">£20 <small>per session</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="container">
+            <p class="section-label">✦ Portfolio</p>
+            <h2 class="section-title">My Work</h2>
+            <p class="section-subtitle">Every set is handmade with care. Here are some of my recent designs.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/placeholder-nail1.jpg" alt="Glazed donut nails with glitter accent" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="gallery-placeholder" style="display:none"><span>💅</span> Glazed Donut</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/placeholder-nail2.jpg" alt="Gold glitter ombré almond nails" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="gallery-placeholder" style="display:none"><span>✨</span> Gold Ombré</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder"><span>📸</span> Your photo here</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder"><span>📸</span> Your photo here</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP — AFFILIATE -->
+    <section id="shop" style="background: var(--warm-white);">
+        <div class="container">
+            <p class="section-label">✦ Shop My Faves</p>
+            <h2 class="section-title">Products I Love & Use</h2>
+            <p class="section-subtitle">Every product I recommend is one I actually use on myself and my clients. When you buy through my links, I earn a small commission at no extra cost to you. 🌸</p>
+            <div class="services-grid">
+                <div class="service-card" style="text-align:center;">
+                    <div class="service-icon">💡</div>
+                    <h3>UV/LED Nail Lamp</h3>
+                    <p>The exact lamp I use for all my gel sets — 48W, fast cure, professional grade.</p>
+                    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">⏳ Coming soon — link will go live when I join Amazon Associates</p>
+                    <a href="#" class="btn-primary" style="font-size:0.8rem;padding:10px 24px;">🔗 Shop on Amazon</a>
+                </div>
+                <div class="service-card" style="text-align:center;">
+                    <div class="service-icon">✨</div>
+                    <h3>Glitter Collection</h3>
+                    <p>My go-to holographic and iridescent glitters for that perfect ombré effect.</p>
+                    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">⏳ Coming soon — link will go live when I join Amazon Associates</p>
+                    <a href="#" class="btn-primary" style="font-size:0.8rem;padding:10px 24px;">🔗 Shop on Amazon</a>
+                </div>
+                <div class="service-card" style="text-align:center;">
+                    <div class="service-icon">🧴</div>
+                    <h3>Gel Polishes</h3>
+                    <p>Professional gel colours — white pearl, nudes, and the gold I used in my ombré set.</p>
+                    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">⏳ Coming soon — link will go live when I join Amazon Associates</p>
+                    <a href="#" class="btn-primary" style="font-size:0.8rem;padding:10px 24px;">🔗 Shop on Amazon</a>
+                </div>
+                <div class="service-card" style="text-align:center;">
+                    <div class="service-icon">💅</div>
+                    <h3>Nail Care Kit</h3>
+                    <p>Cuticle oil, files, buffers — everything you need between appointments.</p>
+                    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">⏳ Coming soon — link will go live when I join Amazon Associates</p>
+                    <a href="#" class="btn-primary" style="font-size:0.8rem;padding:10px 24px;">🔗 Shop on Amazon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <p class="section-label">✦ About</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hi, I'm Daisy 🌸</h3>
+                    <p>I'm a professional nail artist and beauty therapist based in <strong>Wandsworth, London</strong>. I've always loved creating beautiful nails — from elegant everyday looks to bold, glittering statement sets.</p>
+                    <p>My goal is simple: bring the salon to your living room. No queuing, no rushing, no tube journey. Just you, your favourite playlist, and stunning nails.</p>
+                    <p>I use professional-grade products including UV/LED gel, acrylic powders, and top-brand glitters. Every appointment includes a consultation to make sure you get exactly what you want.</p>
+                    <p><strong>📍 I come to you</strong> — anywhere in Wandsworth, Battersea, and surrounding areas.</p>
+                </div>
+                <div class="about-photo">
+                    <div style="text-align:center;padding:20px;">
+                        <span style="font-size:3rem;">👩‍🎨</span>
+                        <p style="margin-top:8px;">Your photo here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <p class="section-label" style="color:var(--gold);">✦ Book</p>
+            <h2 class="section-title">Let's Create Something Beautiful</h2>
+            <p class="section-subtitle">Message me to book your appointment. I typically respond within the hour.</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="icon">💬</div>
+                    <h4>WhatsApp / Text</h4>
+                    <p><a href="https://wa.me/44XXXXXXXXX">Message me directly</a><br>Reply in &lt; 1 hour</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <h4>Service Area</h4>
+                    <p>Wandsworth, Battersea<br>Southfields, Earlsfield</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">⏰</div>
+                    <h4>Availability</h4>
+                    <p>Mon–Sat: 10am – 7pm<br>Sunday: by request</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL BAR -->
+    <div class="social-bar">
+        <a href="https://www.instagram.com/daisybeautywandsworth" target="_blank" aria-label="Instagram">📷</a>
+        <a href="https://www.tiktok.com/@daisybeautywandsworth" target="_blank" aria-label="TikTok">🎵</a>
+        <a href="https://www.facebook.com/daisybeautywandsworth" target="_blank" aria-label="Facebook">👍</a>
+        <a href="https://wa.me/44XXXXXXXXX" target="_blank" aria-label="WhatsApp">💬</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Daisy Beauty Wandsworth. Made with love in London 🌸</p>
+    </footer>
+</body>
+</html>

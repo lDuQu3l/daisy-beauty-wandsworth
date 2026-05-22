@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flyer - Daisy Beauty Wandsworth</title>
+<style>
+  @page { size: A5; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    background: #f7f2ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .flyer {
+    width: 595px;  /* A5 width at 72dpi */
+    height: 842px; /* A5 height */
+    background: linear-gradient(135deg, #fdfaf7 0%, #f7f2ed 40%, #e8d5d7 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Decorative elements */
+  .deco-1 {
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,132,138,0.15) 0%, transparent 70%);
+  }
+  .deco-2 {
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
+  }
+  /* Gold line accent */
+  .gold-line {
+    width: 60px; height: 2px;
+    background: #c9a96e;
+    margin: 12px auto;
+  }
+  /* Front side */
+  .front {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .badge {
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b8848a;
+    margin-bottom: 16px;
+  }
+  .brand {
+    font-size: 42px;
+    color: #1a1a1a;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .brand em {
+    font-style: italic;
+    color: #b8848a;
+  }
+  .tagline {
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-size: 13px;
+    color: #6b5b58;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 16px 0 24px;
+  }
+  .services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin: 16px 0;
+    text-align: left;
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-size: 12px;
+    color: #1a1a1a;
+  }
+  .services .item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .services .price {
+    color: #b8848a;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .cta-area {
+    margin: 20px 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .whatsapp {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 10px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .qr-small {
+    width: 100px; height: 100px;
+    border-radius: 8px;
+    border: 1px solid #e0d3ce;
+    padding: 4px;
+    background: white;
+  }
+  .area {
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-size: 11px;
+    color: #6b5b58;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .flyer { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="deco-1"></div>
+    <div class="deco-2"></div>
+    
+    <!-- FRONT -->
+    <div class="front">
+      <div class="badge">✦ Wandsworth, London ✦</div>
+      <h1 class="brand">Daisy<br><em>Beauty</em></h1>
+      <div style="font-family:'Inter',sans-serif;font-size:20px;color:#1a1a1a;letter-spacing:6px;margin-top:4px;">WANDSWORTH</div>
+      <div class="gold-line"></div>
+      <div class="tagline">Silencio Lujoso · Nails & Beauty at Home</div>
+      
+      <div class="services">
+        <div class="item"><span>Acrylic / Gel Full Set</span><span class="price">£35</span></div>
+        <div class="item"><span>Fill & Maintenance</span><span class="price">£25</span></div>
+        <div class="item"><span>Glitter & Designs</span><span class="price">+£5</span></div>
+        <div class="item"><span>African Braids</span><span class="price">£30+</span></div>
+        <div class="item"><span>Hair Treatments</span><span class="price">£35+</span></div>
+        <div class="item"><span>Gel Polish Only</span><span class="price">£20</span></div>
+      </div>
+      <p style="font-family:'Inter',sans-serif;font-size:10px;color:#b8848a;letter-spacing:1px;margin-top:4px;">✨ Lanzamiento — primeras 10 clientas</p>
+      
+      <div class="cta-area">
+        <a class="whatsapp" href="https://wa.me/447542496677">💬 Book via WhatsApp</a>
+        <img class="qr-small" src="images/qr-website.png" alt="QR">
+      </div>
+      <div class="area">📍 Wandsworth · Battersea · Southfields</div>
+    </div>
+  </div>
+</body>
+</html>
